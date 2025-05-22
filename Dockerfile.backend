@@ -12,6 +12,8 @@ RUN apt-get update && \
 COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+RUN python -c "import nltk; nltk.download('punkt')"
+
 # Copy backend source code
 COPY backend/ ./backend
 
