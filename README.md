@@ -85,3 +85,27 @@ If Weaviate is not available, the application falls back to a basic keyword matc
 - Improve HTML parsing to better preserve document structure
 - Implement more advanced relevance ranking algorithms
 - Add support for JavaScript-rendered websites using headless browsers
+
+## CI/CD Pipeline
+
+This project uses GitHub Actions for Continuous Integration and Deployment:
+
+### Frontend CI/CD (Vercel)
+
+The frontend is automatically deployed to Vercel when changes are pushed to the main branch or when pull requests are created.
+
+Required Secrets:
+- `VERCEL_TOKEN`
+- `VERCEL_PROJECT_ID`
+- `VERCEL_ORG_ID`
+
+### Backend CI/CD (Render)
+
+The backend (FastAPI) and Weaviate services are automatically deployed to Render when changes are pushed to the main branch.
+
+Required Secrets:
+- `RENDER_API_KEY`
+- `RENDER_BACKEND_SERVICE_ID`
+- `RENDER_WEAVIATE_SERVICE_ID`
+
+Preview deployments are automatically created for pull requests to facilitate testing changes before merging.
